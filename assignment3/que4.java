@@ -1,22 +1,42 @@
-import java.util.*;
-public class que3 {
-   
-        public static void main(String[] args) {
-            ArrayList<String> li = new ArrayList<String>();
-            li.add("A");
-            li.add("B");
-            li.add("C");
-            li.add("D");
-            li.add("E");
-    
-            int index1 = 0;
-            int index2 = li.size()-1;
-            System.out.println(li);
-    
-            String temp = li.get(index1);
-            li.set(index1, li.get(index2));
-            li.set(index2, temp);
-    
-            System.out.println(li);
+public class que5 {
+    public static boolean isBalanced(String exp)
+    {
+        boolean flag = true;
+        int count = 0;
+        for(int i = 0; i < exp.length(); i++)
+        {
+            if (exp.charAt(i) == '(')
+            {
+                count++;
+            }
+            else
+            {
+                count--;
+            }
+            if (count < 0)
+            {
+                flag = false;
+                break;
+            }
         }
+  
+        if (count != 0)
+        {
+            flag = false;
+        }
+        return flag;
     }
+
+    public static void main(String[] args)
+    {
+        String exp1 = "((()))()()";
+        
+        if (isBalanced(exp1))
+            System.out.println("Balanced");
+        else
+            System.out.println("Not Balanced");
+        
+    }
+    }
+  
+    
